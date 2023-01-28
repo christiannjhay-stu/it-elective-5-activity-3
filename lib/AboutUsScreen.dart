@@ -1,31 +1,17 @@
 import 'package:activity3/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  static const appTitle = '';
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: appTitle,
-      home: AboutScreen(title: appTitle),
-    );
-  }
-}
+
+
 
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key, required this.title});
-
-  final String title;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title),
+      appBar: AppBar(
       leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(Icons.account_circle),
@@ -34,14 +20,10 @@ class AboutScreen extends StatelessWidget {
         ),
       backgroundColor: const Color(0xff091A2F),),
       
-      body: const Center(
-        child: Text('About Us',
+      body: Text(
+        "The setup experience.",
         style: TextStyle(
-          color: Colors.white,
-          fontSize: 40,
-          fontWeight: FontWeight.bold,
-          fontFamily: "Noopla"
-        ),
+          color: Colors.white
         ),
       ),
       
@@ -52,7 +34,6 @@ class AboutScreen extends StatelessWidget {
           padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
           children: [
             Center(
-              
               child: Card(
                 elevation: 0,
                 shape: RoundedRectangleBorder(

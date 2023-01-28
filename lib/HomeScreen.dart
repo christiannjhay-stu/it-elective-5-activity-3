@@ -2,31 +2,17 @@ import 'package:activity3/LoginScreen.dart';
 import 'package:activity3/AboutUsScreen.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  static const appTitle = '';
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: appTitle,
-      home: MyHomePage(title: appTitle),
-    );
-  }
-}
+
+
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title),
+      appBar: AppBar(
       leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(Icons.account_circle),
@@ -52,7 +38,6 @@ class MyHomePage extends StatelessWidget {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
           children: [
-            
             Center(
               child: Card(
                 color: Color.fromARGB(255, 9, 26, 47),
@@ -177,7 +162,7 @@ class MyHomePage extends StatelessWidget {
                   title: const Text('About Us'),
                   onTap: () {
                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext){
-                     return AboutScreen(title: title);
+                     return AboutScreen();
                 }));
                   },
                   textColor: Colors.white,

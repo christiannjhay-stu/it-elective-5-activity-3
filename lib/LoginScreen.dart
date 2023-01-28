@@ -468,7 +468,7 @@ class _LoginScreenState extends State < LoginScreen > {
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                            return MyHomePage(title: appTitle);
+                            return MyHomePage();
                           }));
                         },
                         style: ButtonStyle(
