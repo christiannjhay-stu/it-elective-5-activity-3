@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 
 
-
-
-
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,10 +30,12 @@ class MyHomePage extends StatelessWidget {
       ),
       
       drawer: Drawer(
+        
         backgroundColor: Color.fromARGB(255, 9, 26, 47),
+        
         child: ListView(
           // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+          padding: EdgeInsets.only(left: 30, right: 30, top: 40, bottom: 10),
           children: [
             Center(
               child: Card(
@@ -59,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 550),
+            SizedBox(height: 510),
             ListTileTheme(            
                   child: ListTile(
                   shape: RoundedRectangleBorder(

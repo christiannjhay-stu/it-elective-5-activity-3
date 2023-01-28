@@ -21,7 +21,7 @@ class AboutScreen extends StatelessWidget {
       backgroundColor: const Color(0xff091A2F),),
       
       body: Text(
-        "The setup experience.",
+        "About Flutter",
         style: TextStyle(
           color: Colors.white
         ),
@@ -31,10 +31,11 @@ class AboutScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 9, 26, 47),
         child: ListView(
           // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+          padding: EdgeInsets.only(left: 30, right: 30, top: 40, bottom: 10),
           children: [
             Center(
               child: Card(
+                color: Color.fromARGB(255, 9, 26, 47),
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
@@ -48,11 +49,13 @@ class AboutScreen extends StatelessWidget {
                   child: Icon(
                   Icons.account_circle,
                   size: 120,
+                  color: Colors.white,
+
                   )
                 ),
               ),
             ),
-            SizedBox(height: 550),
+            SizedBox(height: 510),
             ListTileTheme(            
                   child: ListTile(
                   shape: RoundedRectangleBorder(
