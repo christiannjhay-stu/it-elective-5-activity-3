@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:activity3/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
+ import 'package:http/http.dart' as http;
 
 
 
@@ -13,6 +17,8 @@ class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
+
+
 
 Widget buildEmail() {
   return Column(
@@ -417,7 +423,6 @@ Widget buildConfirmPassword() {
             hintText: 'Confirm Password',
             hintStyle: TextStyle(
               color: Colors.white,
-
             )
           ),
         )
@@ -428,9 +433,27 @@ Widget buildConfirmPassword() {
 
 
 class _LoginScreenState extends State < LoginScreen > {
-  static
-  const appTitle = '';
-  @override
+
+@override
+void initState() {
+  late String FirstName;
+  super.initState();
+  fetchUsers().then((value){
+    
+    setState(() {
+      FirstName = value[0]['name']['first'];
+    });
+  });
+  
+}
+
+Future<List<dynamic>> fetchUsers() async {
+  var result =
+      await http.get(Uri.parse("https://randomuser.me/api/"));
+      
+  return jsonDecode(result.body)['results'];
+}
+ 
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnnotatedRegion < SystemUiOverlayStyle > (
@@ -468,7 +491,7 @@ class _LoginScreenState extends State < LoginScreen > {
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                            return MyHomePage();
+                            return HomeScreen();
                           }));
                         },
                         style: ButtonStyle(
@@ -494,8 +517,7 @@ class _LoginScreenState extends State < LoginScreen > {
                     orLogin(),
                     SizedBox(height: 12),
                     LoginWith(),
-                    SizedBox(height: 20),
-                    SizedBox(height: 12),
+                    SizedBox(height: 32),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -583,10 +605,10 @@ class _SignUpScreenState extends State < SignUpScreen > {
                       width: 340,
                       height: 60,
                       child: TextButton(
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                           return LoginScreen();
-                           }));
+                            return LoginScreen();
+                          }));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll < Color > (Color(0xffFBB718)),

@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 
 
 
-
-
-
-
 class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,11 +16,15 @@ class AboutScreen extends StatelessWidget {
         ),
       backgroundColor: const Color(0xff091A2F),),
       
-      body: Text(
-        "About Flutter",
+      body:Padding(padding: EdgeInsets.all(30),
+      child: Text(
+        "Flutter is easy to set up and use. The building and the running experience were pretty smooth. However, I have difficulties in designing web layouts, but I'm getting used to it right now. I encountered some weird bugs when cloning projects from Git Hub.",
         style: TextStyle(
-          color: Colors.white
+          color: Colors.white,
+          fontSize: 18,
         ),
+      ),
+      
       ),
       
       drawer: Drawer(
