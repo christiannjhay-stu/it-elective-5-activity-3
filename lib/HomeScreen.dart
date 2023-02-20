@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:activity3/LoginScreen.dart';
 import 'package:activity3/AboutUsScreen.dart';
@@ -39,7 +38,7 @@ class Data {
 class _HomeScreenState extends State < HomeScreen > {
   late String FirstName;
   late String LastName;
-  late String UserImage;
+  late String UserImage ='';
 
 
 
@@ -48,7 +47,7 @@ class _HomeScreenState extends State < HomeScreen > {
 
 
     super.initState();
-
+    
     fetchUsers().then((value) {
 
       print(value[0]['name']['first']);
