@@ -36,8 +36,8 @@ class Data {
 }
 
 class _HomeScreenState extends State < HomeScreen > {
-  late String FirstName;
-  late String LastName;
+  late String FirstName='';
+  late String LastName='';
   late String UserImage ='';
 
 
@@ -49,9 +49,6 @@ class _HomeScreenState extends State < HomeScreen > {
     super.initState();
     
     fetchUsers().then((value) {
-
-      print(value[0]['name']['first']);
-      print(value[0]['name']['last']);
       setState(() {
         FirstName = value[0]['name']['first'];
         LastName = value[0]['name']['last'];
@@ -80,8 +77,6 @@ class _HomeScreenState extends State < HomeScreen > {
       await http.get(Uri.parse("https://randomuser.me/api/"));
     return jsonDecode(result.body)['results'];
   }
-
-
 
   @override
   Widget build(BuildContext context) {
